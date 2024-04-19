@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block namewebsite %}
+<div class='container'>
+    Thêm phiếu đặt hàng
+</div>
+{% endblock %}
+{% block content %}
+<div>
+    <form id="addFormOder" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputName">Tên khách</label>
+                <input type="text" class="form-control" id="inputName" name="Tên_khách" placeholder="Tên khách" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputTel">Điện thoại</label>
+                <input type="tel" class="form-control" id="inputTel" name="Điện_thoại" placeholder="Điện thoại" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Địa chỉ</label>
+            <input type="text" class="form-control" id="inputAddress" name="Địa_chỉ" placeholder="Điền Số nhà - Tên đường" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputArea">Khu vực</label>
+                <input type="text" class="form-control" id="inputArea" name="Khu_vực" placeholder="Chọn TP - Quận/Huyện" required>
+                <div id='listArea' class="list-group list-group-container" style="display: none;"></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputWard">Phường xã</label>
+                <input type="text" class="form-control" id="inputWard" name="Phường_xã" placeholder="Chọn Phường/xã" required> 
+                <div id='listWard' class="list-group list-group-container" style="display: none;"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="inputProducts">Tên sản phẩm</label>
+                <input type="text" class="form-control" id="inputProducts" name="Tên_hàng" placeholder="Tên sản phẩm" required>
+                <div id='Products' class="list-group list-group-container" style="display: none;">
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="Price">Giá bán</label>
+                <input type="text" class="form-control" id="Price" name="Giá_bán" readonly>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputZip">Ghi chú</label>
+                <input type="text" class="form-control" id="inputZip">
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <button type="submit" class="btn btn-primary">Thêm</button>
+        </div>
+    </form>
+</div>
+<script type="module" src="{{ url_for("static", filename="form/form.js") }}"></script>
+{% endblock %}

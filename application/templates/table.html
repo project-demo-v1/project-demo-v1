@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+Các phiếu đặt hàng
+{% endblock %}
+{% block content %}
+<main>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Ngày</th>
+            <th scope="col">Tên khách</th>
+            <th scope="col">Điện thoại</th>
+            <th scope="col">Tên hàng</th>
+            <th scope="col">Khu Vực</th>
+            <th scope="col">Thao tác</th>
+        </tr>
+        </thead>
+            {% for row in data %}
+        <tbody>
+        <tr>
+            <td scope="row" >{{ row['Ngày'] }}</td>
+            <td scope="row" >{{ row['Tên khách'] }}</td>
+            <td scope="row" >{{ row['Điện thoại'] }}</td>
+            <td scope="row" >{{ row['Tên hàng'] }}</td>
+            <td scope="row" >{{ row['Khu vực'] }}</td>
+            <td><button type="button" class="deleteRow">
+                Xóa
+                </button></td>
+        </tr>
+        </tbody>
+            {% endfor %}
+    </table>
+</main>
+<script>
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('deleteRow')) {
+          event.target.closest('tr').remove();
+        }
+    });
+</script>
+{% endblock %}
